@@ -10,6 +10,23 @@ const MultiplicationMatrix = () => {
     setRows(Number(e));
   };
 
+  const handleColumnsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setColumns(Number(e));
+  };
+
+  const generateMatrix = () => {
+    const newMatrix: number[][] = [];
+
+    for (let i = 1; i <= rows; i++) {
+      const row: number[] = [];
+      for (let j = 1; j <= columns; j++) {
+        row.push(i * j);
+      }
+      newMatrix.push(row);
+    }
+    setMatrix(newMatrix);
+  };
+
   return (
     <>
       <div>
@@ -18,7 +35,12 @@ const MultiplicationMatrix = () => {
           <input type="number" value={rows} onChange={handleRowsChange} />
         </label>
       </div>
-      <div></div>
+      <div>
+        <label>
+          Columns:
+          <input type="number" value={columns} onChange={handleColumnsChange} />
+        </label>
+      </div>
     </>
   );
 };
