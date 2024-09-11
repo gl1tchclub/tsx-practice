@@ -41,6 +41,20 @@ const MultiplicationMatrix = () => {
           <input type="number" value={columns} onChange={handleColumnsChange} />
         </label>
       </div>
+      <button onClick={generateMatrix}>Generate Matrix</button>
+      {matrix.length > 0 && (
+        <table>
+          <tbody>
+            {matrix.map((row, rowIdx) => (
+              <tr key={rowIdx}>
+                {row.map((cell, cellIdx) => (
+                  <td key={cellIdx}>{cell}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </>
   );
 };
